@@ -1,0 +1,24 @@
+{
+  "name": "json_placeholder",
+  "version": "1.0.0",
+  "description": "",
+  "source": "/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stavbers/JSON_placeholder.git"
+  },
+  "author": "stavbers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stavbers/JSON_placeholder/issues"
+  },
+  "homepage": "https://github.com/stavbers/JSON_placeholder#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "parcel": "^2.8.3"
+  }
+}
