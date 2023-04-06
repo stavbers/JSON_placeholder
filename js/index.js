@@ -3,7 +3,7 @@
 // /users/1/albums
 // /users/1/todos
 // /users/1/posts
-// console.log(document.querySelector('.app-wrp__list').dataset.id)
+// console.log(document.querySelectorAll('.app-wrp__list').dataset.id)
 
 const appWrp = document.querySelector('.app-wrp');
 
@@ -12,10 +12,17 @@ function fetchDataPosts() {
   .then(response => response.json())
   .then(data => addElDOM(data))
 }
+function fetchDataPhotos() {
+  fetch('https://jsonplaceholder.typicode.com/photos')
+  .then(response => response.json())
+  // .then(data => addElDOM(data))
+  .then(data => console.log(data))
+}
 function addElDOM(data){
   data.forEach(element => {
     document.querySelector('.app-wrp').innerHTML += createElDOM(element)
   });
+  
 }
 function createElDOM(element){
     return (
@@ -27,3 +34,4 @@ function createElDOM(element){
 }
 
 fetchDataPosts()
+fetchDataPhotos()

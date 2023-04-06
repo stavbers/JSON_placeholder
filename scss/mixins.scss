@@ -1,0 +1,13 @@
+// font-family: 'Roboto', sans-serif;
+.app {
+  font-family: 'Roboto', sans-serif;
+}
+@mixin fw300 {
+  font-weight: 300;
+}
+@mixin fw400 {
+  font-weight: 400;
+}
+@mixin fw700 {
+  font-weight: 700;
+}
