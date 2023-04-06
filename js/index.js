@@ -1,10 +1,3 @@
-// /posts/1/comments
-// /albums/1/photos
-// /users/1/albums
-// /users/1/todos
-// /users/1/posts
-// console.log(document.querySelectorAll('.app-wrp__list').dataset.id)
-
 
 function fetchDataPosts() {
   fetch('https://jsonplaceholder.typicode.com/posts')
