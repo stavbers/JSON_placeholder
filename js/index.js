@@ -5,7 +5,6 @@
 // /users/1/posts
 // console.log(document.querySelectorAll('.app-wrp__list').dataset.id)
 
-const appWrp = document.querySelector('.app-wrp');
 
 function fetchDataPosts() {
   fetch('https://jsonplaceholder.typicode.com/posts')
@@ -24,17 +23,15 @@ function addElDOM(data){
 }
 
 function addImgToDOM(data){
-  document.querySelectorAll('.app-wrp__img').forEach((imgBlock, index) => {
+  document.querySelectorAll('.app-wrp__img').forEach((imgBlock, imgIndex) => {
     data.forEach((element, elementIndex) => {
       if(element.id < 201){
-        if(index == elementIndex) {
-          imgBlock.innerHTML = `<img src="${element.thumbnailUrl}" >`
+        if(imgIndex == elementIndex) {
+          imgBlock.innerHTML = `<img src="${element.thumbnailUrl}" loading="lazy">`
         }
       }
     });
-   
   })
-
 }
 
 function createElDOM(element){
@@ -42,9 +39,13 @@ function createElDOM(element){
       `<li class="app-wrp__list" data-id = ${element.id}>
           <h2 class="app-wrp__title">${element.title}</h2>
           <div class="app-wrp__img"></div>
-          <p class="app-wrp__desr">${element.body}</p>
+          <p class="app-wrp__desr">${upFstChar(element.body)}</p>
       </li>`
     )
+}
+
+function upFstChar(char){
+   return char[0].toUpperCase() + char.slice(1)
 }
 
 fetchDataPosts()
