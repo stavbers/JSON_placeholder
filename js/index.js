@@ -15,19 +15,33 @@ function fetchDataPosts() {
 function fetchDataPhotos() {
   fetch('https://jsonplaceholder.typicode.com/photos')
   .then(response => response.json())
-  // .then(data => addElDOM(data))
-  .then(data => console.log(data))
+  .then(data => addImgToDOM(data))
 }
 function addElDOM(data){
   data.forEach(element => {
     document.querySelector('.app-wrp').innerHTML += createElDOM(element)
   });
-  
 }
+
+function addImgToDOM(data){
+  document.querySelectorAll('.app-wrp__img').forEach((imgBlock, index) => {
+    data.forEach((element, elementIndex) => {
+      if(element.id < 201){
+        if(index == elementIndex) {
+          imgBlock.innerHTML = `<img src="${element.thumbnailUrl}" >`
+        }
+      }
+    });
+   
+  })
+
+}
+
 function createElDOM(element){
     return (
       `<li class="app-wrp__list" data-id = ${element.id}>
           <h2 class="app-wrp__title">${element.title}</h2>
+          <div class="app-wrp__img"></div>
           <p class="app-wrp__desr">${element.body}</p>
       </li>`
     )
